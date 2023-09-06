@@ -69,4 +69,4 @@ shopSchema.statics.login = async function (email, password) {
   return shop;
 };
 
-module.exports = mongoose.model("shop", shopSchema);
+module.exports = mongoose.model("Shop", shopSchema);
