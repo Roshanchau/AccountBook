@@ -1,11 +1,24 @@
 require("dotenv").config();
-const express=require("express");
-const mongoose=require("mongoose");
-
+const express = require("express");
+const mongoose = require("mongoose");
+const customerRoutes = require("./routes/customer");
+const shopRoutes = require("./routes/shop");
 const app=express();
 
 //routes
 
+
+//middleware
+app.use(express.json()); //we use it for req.body
+
+app.use((req, res, next) => {
+  console.log(req.path, req.method); //this is middleware
+  next();
+});
+
+//routes
+app.use("/api/customers", customerRoutes);
+app.use("/api/shop", shopRoutes);
 
 //connect to db
 mongoose
