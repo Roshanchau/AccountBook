@@ -1,4 +1,4 @@
-const Customer = require("../models/customerModel");
+const Customer = require("../models/cusotmerModel");
 const mongoose = require("mongoose");
 
 const getCustomers = async (req, res) => {
@@ -28,7 +28,7 @@ const createCustomer = async (req, res) => {
   let emptyFields = [];
 
   if (!name) {
-    emptyFields.push("name");
+    emptyFields.push("title");
   }
   if (!email) {
     emptyFields.push("email");
@@ -46,7 +46,7 @@ const createCustomer = async (req, res) => {
   try {
     // so we added the user property to the req as req.user in the authContext so we can use it here to get the user id
     const user_id = req.user._id;
-    const customer = await Customer.create({ title, load, reps, user_id });
+    const customer = await Customer.create({ name, email, contact });
     res.status(200).json(customer);
   } catch (error) {
     res.status(400).json({ error: error.message });

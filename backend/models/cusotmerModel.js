@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const customerSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
+const customerSchema = new Schema(
+  {
+  name:{
+    type:String,
+    required:true,
   },
   email: {
     type: String,
@@ -18,7 +19,7 @@ const customerSchema = new Schema({
     unique: true,
   },
 },
-{timestamps:ture}
+{timestamps:true}
 );
 
 module.exports=mongoose.model("cusotmer" , customerSchema);

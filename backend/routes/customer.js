@@ -6,7 +6,7 @@ const {
     createCustomer,
   deleteCustomer,
   updateCustomer,
-} = require("../controllers/workoutController");
+} = require("../controllers/customerController");
 const requireAuth=require("../middleware/requireAuth");
 
 router.use(requireAuth);
