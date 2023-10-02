@@ -18,6 +18,10 @@ const customerSchema = new Schema(
     required: true,
     unique: true,
   },
+  user_id:{
+    type: String,
+    require:true
+  }
 },
 {timestamps:true}
 );

@@ -28,7 +28,7 @@ const createCustomer = async (req, res) => {
   let emptyFields = [];
 
   if (!name) {
-    emptyFields.push("title");
+    emptyFields.push("name");
   }
   if (!email) {
     emptyFields.push("email");
@@ -46,7 +46,9 @@ const createCustomer = async (req, res) => {
   try {
     // so we added the user property to the req as req.user in the authContext so we can use it here to get the user id
     const user_id = req.user._id;
-    const customer = await Customer.create({ name, email, contact });
+    console.log(user_id);
+    const customer = await Customer.create({ name, email,user_id, contact });
+    console.log(customer);
     res.status(200).json(customer);
   } catch (error) {
     res.status(400).json({ error: error.message });
