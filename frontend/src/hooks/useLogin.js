@@ -11,6 +11,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
+    // don't forget to add the proxy in package.json to fetch from the endpoint 3000 where backend is running across from the api.
     const response = await fetch("/api/shop/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },

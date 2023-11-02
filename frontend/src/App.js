@@ -6,8 +6,8 @@ const App = () => {
   return (
     <>
      <Home/>
-     <Login/>
-     <SignUp/>
+     {/* <Login/> */}
+     {/* <SignUp/> */}
     </>
   )
 }
