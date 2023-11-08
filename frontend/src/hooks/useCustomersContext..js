@@ -2,7 +2,7 @@ import { CustomersContext } from "../context/CustomerContext";
 import { useContext } from "react";
 
 //everytime we need to get the workouts data we can invoke the useWorkoutsContext hook 
-export const useWorkoutsContext = () => {
+export const useCustomersContext = () => {
   const context = useContext(CustomersContext);
 
   if (!context) {

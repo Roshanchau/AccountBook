@@ -1,12 +1,11 @@
 import React from 'react'
-import Login from './pages/Login'
 import Home from './pages/Home'
-import SignUp from './pages/SignUp'
+import Login from './pages/Login'
 const App = () => {
   return (
     <>
      <Home/>
-     {/* <Login/> */}
+     <Login/>
      {/* <SignUp/> */}
     </>
   )
