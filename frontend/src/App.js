@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Navbar from "./components/Navbar";
 const App = () => {
-  const shop = useAuthContext();
+  const {shop} = useAuthContext();
   return (
     <>
       <BrowserRouter>
@@ -18,7 +18,7 @@ const App = () => {
           />
           <Route
             path="/login"
-            element={!shop ? <Login /> : <Navigate to="/" />}
+            element={!shop ? <Login/> : <Navigate to="/" />}
           />
           <Route
             path="/signup"

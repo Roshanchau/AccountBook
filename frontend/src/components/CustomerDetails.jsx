@@ -5,7 +5,7 @@ import useAuthContext from "../hooks/useAuthcontext";
 
 const CustomerDetails = ({customer}) => {
   const {dispatch}=useCustomersContext();
-  const{user}=useAuthContext();
+  const{shop}=useAuthContext();
   return (
     <>
         <div

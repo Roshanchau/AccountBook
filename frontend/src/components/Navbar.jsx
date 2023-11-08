@@ -1,9 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuthContext from "../hooks/useAuthcontext";
+import { useLogout } from "../hooks/useLogout";
 
 const Navbar = () => {
-  const shop = useAuthContext();
+  const {shop} = useAuthContext();
+  console.log(shop);
+  const {logout}=useLogout();
+  console.log(logout);
+
+
+  const handleLogout=()=>{
+    logout();
+  }
   return (
     <>
       <div
@@ -24,14 +33,14 @@ const Navbar = () => {
                 </li>
             {shop && (
               <div className="flex flex-row gap-3">
-               <span>{shop.shop.email}</span>
+               <span>{shop.email}</span>
                <button className="bg-neutral-700 text-white
                p-2 rounded-md
-               ">Log out</button>
+               " onClick={handleLogout}>Log out</button>
               </div>
             )}
             {!shop && (
-              <div>
+              <div className="flex flex-row">
                 <li className="mx-3">
                   <Link to="/login">Login</Link>
                 </li>
