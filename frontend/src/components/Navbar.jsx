@@ -4,15 +4,12 @@ import useAuthContext from "../hooks/useAuthcontext";
 import { useLogout } from "../hooks/useLogout";
 
 const Navbar = () => {
-  const {shop} = useAuthContext();
-  console.log(shop);
-  const {logout}=useLogout();
-  console.log(logout);
+  const { shop } = useAuthContext();
+  const { logout } = useLogout();
 
-
-  const handleLogout=()=>{
+  const handleLogout = () => {
     logout();
-  }
+  };
   return (
     <>
       <div
@@ -28,15 +25,20 @@ const Navbar = () => {
                        
                     "
           >
-             <li className="mx-3">
-                  <Link to="/">Home</Link>
-                </li>
+            <li className="mx-3">
+              <Link to="/">Home</Link>
+            </li>
             {shop && (
               <div className="flex flex-row gap-3">
-               <span>{shop.email}</span>
-               <button className="bg-neutral-700 text-white
+                <span>{shop.email}</span>
+                <button
+                  className="bg-neutral-700 text-white
                p-2 rounded-md
-               " onClick={handleLogout}>Log out</button>
+               "
+                  onClick={handleLogout}
+                >
+                  Log out
+                </button>
               </div>
             )}
             {!shop && (
