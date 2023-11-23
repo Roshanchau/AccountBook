@@ -3,6 +3,7 @@ import CustomerDetails from '../components/CustomerDetails'
 import useAuthContext from  '../hooks/useAuthcontext'
 import { useCustomersContext } from '../hooks/useCustomersContext.'
 import { useEffect } from 'react'
+import CustomerForm from '../components/CustomerForm'
 
 const Home = () => {
 const{customers , dispatch}=useCustomersContext();
@@ -35,6 +36,7 @@ useEffect(() => {
             <CustomerDetails key={customer.id} customer={customer}/>
           ))
         }
+        <CustomerForm/>
       </div>
     </>
   )
