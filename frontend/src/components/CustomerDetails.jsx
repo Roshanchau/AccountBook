@@ -105,7 +105,7 @@ const CustomerDetails = ({ customer }) => {
           <div className="flex justify-end">
             <AiOutlineDelete
               className="text-2xl text-red-700"
-              onClick={handleDelete}
+              onClick={handleDelete} 
             />
             <BiSolidEdit className="text-2xl ml-3" onClick={showEdit} />
           </div>

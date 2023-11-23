@@ -17,7 +17,8 @@ const CustomerForm = () => {
   const handleChange = (customerKey, newValue) => {
     setcustomer({ ...customer, [customerKey]: newValue });
   };
-  const handleCreate = async () => {
+  const handleCreate = async (e) => {
+    e.preventDefault();
     if (!shop) {
       return;
     }
@@ -86,6 +87,7 @@ const CustomerForm = () => {
           >
             Add customer
           </button>
+          {error && <div className="">{error}</div>}
         </div>
       </form>
     </>
