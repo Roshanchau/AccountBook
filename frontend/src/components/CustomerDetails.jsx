@@ -45,7 +45,7 @@ const CustomerDetails = ({ customer }) => {
     setSelectedCustomer({ ...selectedCustomer, [customerKey]: newValue });
   };
 
-  const handleUpdate = async () => {
+  const handleUpdate = async (e) => {
     console.log(selectedCustomer);
     if (!shop) {
       return;
@@ -112,7 +112,7 @@ const CustomerDetails = ({ customer }) => {
         </div>
       </div>
       {show && (
-        <form>
+        <form onSubmit={handleUpdate}>
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -131,11 +131,13 @@ const CustomerDetails = ({ customer }) => {
             value={selectedCustomer.contact}
             onChange={(e) => handleChange("contact", e.target.value)}
           />
-          <button className="bg-green-400" onClick={handleUpdate}>
-            Update
-          </button>
+         <button className="bg-green-400" type="submit">
+         Update
+       </button>
         </form>
+         
       )}
+      
     </>
   );
 };

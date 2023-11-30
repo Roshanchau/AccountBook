@@ -6,25 +6,29 @@ const {
     createCustomer,
   deleteCustomer,
   updateCustomer,
+  removeAllCustomers,
 } = require("../controllers/customerController");
 const requireAuth=require("../middleware/requireAuth");
 
 router.use(requireAuth);
 
 
-//get all workouts  
+//get all customers  
 router.get("/", getCustomers);
 
-//get single workout
+//get single customers
 router.get("/:id", getCustomer);
 
-//post a new workout
+//post a new customers
 router.post("/", createCustomer);
 
-//delete a workout
+//delete a customers
 router.delete("/:id", deleteCustomer);
 
-//update a workout
+// remove all customers
+router.delete("/", removeAllCustomers);
+
+//update a customers
 router.patch("/:id", updateCustomer);
 
 module.exports = router;

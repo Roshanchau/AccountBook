@@ -6,6 +6,10 @@ const getCustomers = async (req, res) => {
   const customers = await Customer.find({user_id}).sort({ createdAt: -1 });
   res.status(200).json(customers);
 };
+const removeAllCustomers = async (req, res) => {
+  const customers = await Customer.deleteMany({});
+  res.status(200).json(customers);
+};
 
 const getCustomer = async (req, res) => {
   const { id } = req.params;
@@ -88,4 +92,5 @@ module.exports = {
     createCustomer,
   deleteCustomer,
   updateCustomer,
+  removeAllCustomers,
 };

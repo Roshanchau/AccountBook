@@ -47,10 +47,28 @@ const CustomerForm = () => {
       dispatch({ type: "CREATE_CUSTOMERS", payload: json });
     }
   };
+  const handleRemove= async(e)=>{
+    e.preventDefault();
+    if (!shop) {
+      return;
+    }
+    const response=await fetch("/api/customers/",{
+      method: "DELETE",
+      headers:{
+        Authorization:`Bearer ${shop.token}`
+      }
+    })
+
+    const json=await response.json();
+
+    if(response.ok){
+      dispatch({type:"REMOVE_CUSTOMERS" , payload: json})
+    }
+  }
 
   return (
     <>
-      <form>
+      <form onSubmit={handleCreate}>
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-row">
             <label htmlFor="name">Name :</label>
@@ -83,13 +101,16 @@ const CustomerForm = () => {
 
           <button
             className="rounded-md bg-green-500 p-2 mt-2"
-            onClick={handleCreate}
+            type="submit"
           >
             Add customer
           </button>
           {error && <div className="">{error}</div>}
         </div>
       </form>
+      <div className="">
+        <button className="bg-red-800 text-white p-3 rounded-md" type="button" onClick={handleRemove}>Remove All</button>
+      </div>
     </>
   );
 };

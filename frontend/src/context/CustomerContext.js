@@ -32,6 +32,12 @@ export const customersReducer = (state, action) => {
         customers: updatedCustomers,
       };
 
+      case "REMOVE_CUSTOMERS":
+        return{
+          customers:null
+        }
+
+
     default:
       return state;
   }
