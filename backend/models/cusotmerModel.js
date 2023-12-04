@@ -21,6 +21,11 @@ const customerSchema = new Schema(
   user_id:{
     type: String,
     require:true
+  },
+  table:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "table",
+
   }
 },
 {timestamps:true}
