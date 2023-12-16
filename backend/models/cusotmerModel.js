@@ -22,11 +22,6 @@ const customerSchema = new Schema(
     type: String,
     require:true
   },
-  table:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "table",
-
-  }
 },
 {timestamps:true}
 );

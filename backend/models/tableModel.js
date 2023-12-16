@@ -16,7 +16,7 @@ const tableSchema=new Schema(
             type:String,
         },
         date:{
-            type:string,
+            type:String,
             required:true,
         },
         serialnumber:{
@@ -33,7 +33,6 @@ const tableSchema=new Schema(
             required:true,
             ref:"customer"
         }
-        
     }
 )
 
