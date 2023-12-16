@@ -3,6 +3,7 @@ import { useCustomersContext } from "../hooks/useCustomersContext.";
 import useAuthContext from "../hooks/useAuthcontext";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BiSolidEdit } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const CustomerDetails = ({ customer }) => {
   const { dispatch } = useCustomersContext();
@@ -66,6 +67,7 @@ const CustomerDetails = ({ customer }) => {
     }
   };
 
+
   return (
     <>
       <div
@@ -108,6 +110,9 @@ const CustomerDetails = ({ customer }) => {
               onClick={handleDelete} 
             />
             <BiSolidEdit className="text-2xl ml-3" onClick={showEdit} />
+            <Link to={`/details/${customer._id}`}>
+            <button className="bg-neutral-800 text-neutral-100 px-3 py-1 rounded-md ml-2">Details</button>
+            </Link>
           </div>
         </div>
       </div>
