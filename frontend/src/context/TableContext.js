@@ -10,8 +10,8 @@ export const tableReducer=(state, action)=>{
             };
         case "CREATE_TABLE":
             return{
-                table:[action.payload, ...state.table]
-            }
+                table:[ ...state.table,action.payload],
+            };
         default:
               return state;
     }

@@ -19,10 +19,9 @@ const tableSchema=new Schema(
             type:String,
             required:true,
         },
-        serialnumber:{
+        serial:{
             type:Number,
-            required:true,
-            unique:true
+            required: true
         },
         monthkey:{
             type:Number,

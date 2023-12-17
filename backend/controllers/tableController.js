@@ -9,7 +9,7 @@ const getTable = async (req, res) => {
     return res.status(404).json({ error: "No such table" });
   }
 
-  const table = await Table.find({customer_id}).sort({ createdAt: -1 });
+  const table = await Table.find({customer_id});
 
   if (!table) {
     return res.status(404).json({ error: "No such table" });
@@ -21,7 +21,7 @@ const createTable = async (req, res) => {
   const { id } = req.params;
   const customer_id = id;
   // destructuring
-  const { items, price, remarks, date, serialnumber, monthkey } = req.body;
+  const { items, price, remarks, date, serial, monthkey } = req.body;
   //error handling
   let emptyFields = [];
 
@@ -37,11 +37,11 @@ const createTable = async (req, res) => {
   if (!date) {
     emptyFields.push("date");
   }
-  if (!serialnumber) {
-    emptyFields.push("serialNumber");
+  if (!serial) {
+    emptyFields.push("serial");
   }
   if (!monthkey) {
-    emptyFields.push("monthKey");
+    emptyFields.push("monthkey");
   }
   if (emptyFields.length > 0) {
     return res
@@ -54,7 +54,7 @@ const createTable = async (req, res) => {
       price,
       remarks,
       date,
-      serialnumber,
+      serial,
       monthkey,
       customer_id,
     });
