@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useAuthContext from "../hooks/useAuthcontext";
 import useTableContext from "../hooks/useTableContext";
 import { useParams } from "react-router-dom";
+import TableComponent from "../components/TableComponent";
 
 const Details = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const Details = () => {
         method: "GET",
       });
       const json = await response.json();
-      console.log(json)
+      console.log(json);
 
       if (response.ok) {
         dispatch({ type: "SET_TABLE", payload: json });
@@ -27,16 +28,9 @@ const Details = () => {
 
   return (
     <>
-       {table && table.length > 0 ? (
+      {table && table.length > 0 ? (
         <div>
-          <ul>
-            <li>{table[0].items}</li>
-            <li>{table[0].price}</li>
-            <li>{table[0].remarks}</li>
-            <li>{table[0].serialnumber}</li>
-            <li>{table[0].monthkey}</li>
-            <li>{table[0].date}</li>
-          </ul>
+          <TableComponent table={table}/>
         </div>
       ) : (
         <p>Loading...</p>
